@@ -137,9 +137,7 @@ const Services = () => {
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    viewport={{ once: true }}                                   
-                                   
-                                    whileHover={{ scale: 1.05 }}
+                                    viewport={{ once: true }} 
                                     
                                 >
                                     <img src={item.image} alt={item.title} className="h-[150px] rounded-lg" />
