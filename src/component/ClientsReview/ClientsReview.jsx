@@ -52,7 +52,8 @@ const ClientsReview = () => {
   );
 
   return (
-    <div className="max-w-5xl mx-auto lg:pt-52 pt-20 lg:pb-30 pb-20 ">
+   <div className="bg-white">
+     <div className="max-w-5xl mx-auto lg:pt-52 pt-20 lg:pb-30 pb-20 ">
       {/* Section Titles */}    
       <div>
         <SectionTitle title='Our Proud Clients' subTitle='  CLIENT REVIEWS'></SectionTitle>
@@ -128,6 +129,7 @@ const ClientsReview = () => {
         </button>
       </div>
     </div>
+   </div>
   );
 };
 

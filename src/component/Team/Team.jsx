@@ -38,7 +38,8 @@ const Team = () => {
     };
 
     return (
-        <motion.div
+        <div className="bg-white">
+            <motion.div
             id="about-us"
             className="flex flex-col py-10 gap-6 text-white px-[3%] container mx-auto"
         >
@@ -107,6 +108,7 @@ const Team = () => {
                 </div>
             </div>
         </motion.div>
+        </div>
     );
 };
 
