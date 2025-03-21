@@ -1,5 +1,8 @@
 const config = {
-  plugins: ["@tailwindcss/postcss"],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["light"], // Available themes
+  },
 };
 
 export default config;
