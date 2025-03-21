@@ -6,10 +6,12 @@ import Separator from "../shared/Separator/Separator";
 
 const Portfolio = () => {
     const [data, setData] = useState([]);
-    const [categories] = useState(["UI/UX", "Website", "SEO", "Logo Design", "Banner Design", "Google Ads"]);
+    const [categories] = useState([
+        "UI/UX", "Website", "SEO", "Logo Design", "Banner Design", "Google Ads"
+    ]);
     const [activeCategory, setActiveCategory] = useState("UI/UX");
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [activePagination,setActivePagination]=useState('right')
+    const [activePagination, setActivePagination] = useState('right');
     const itemsPerPage = 8;
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const Portfolio = () => {
 
     // Handle Prev Click
     const handlePrevClick = () => {
-        setActivePagination('left')
+        setActivePagination('left');
         if (currentIndex === 0) {
             setCurrentIndex(Math.max(filteredData.length - itemsPerPage, 0)); // Go to last page
         } else {
@@ -36,7 +38,7 @@ const Portfolio = () => {
 
     // Handle Next Click
     const handleNextClick = () => {
-        setActivePagination('right')
+        setActivePagination('right');
         if (currentIndex + itemsPerPage >= filteredData.length) {
             setCurrentIndex(0); // Reset to first page
         } else {
@@ -52,73 +54,95 @@ const Portfolio = () => {
             transition={{ duration: 1 }}
             className="flex flex-col md:py-10 pb-32 gap-6 text-white"
         >
-           <div className="flex flex-col md:flex-row justify-between items-center mx-[3%] border-b pb-7 border-[#33333329]">
-            {/* Left Side: Heading and Subheading */}
-            <div className="flex flex-col gap-4 text-center md:text-left">
-                {/* Subheading */}
-                <h3 className="text-[#0C89FF] uppercase  text-sm md:text-[16px] tracking-widest">
-                    UI/UX Portfolio
-                </h3>
+            <motion.div
+                className="flex flex-col md:flex-row justify-between items-center mx-[3%] border-b pb-7 border-[#33333329]"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                {/* Left Side: Heading and Subheading */}
+                <div className="flex flex-col gap-4 text-center md:text-left">
+                    {/* Subheading */}
+                    <h3 className="text-[#0C89FF] uppercase text-sm md:text-[16px] tracking-widest">
+                        UI/UX Portfolio
+                    </h3>
 
-                {/* Main Heading */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#001246] font-bold tracking-wide">
-                    Check Our Previous Work
-                </h2>
-            </div>
+                    {/* Main Heading */}
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#001246] font-bold tracking-wide">
+                        Check Our Previous Work
+                    </h2>
+                </div>
 
-            {/* Right Side: Button */}
-            <div className="mt-6 md:mt-0">
-                <button
-                    onClick={() => setActiveCategory("Alls")}
-                    className="px-8 py-3 text-white bg-[#FF693B] rounded hover:bg-[#FF693B]/90 transition"
-                >
-                    All Portfolio
-                </button>
-            </div>
-        </div>
+                {/* Right Side: Button */}
+                <div className="mt-6 md:mt-0">
+                    <button
+                        onClick={() => setActiveCategory("Alls")}
+                        className="px-8 py-3 text-white bg-[#FF693B] rounded hover:bg-[#FF693B]/90 transition"
+                    >
+                        All Portfolio
+                    </button>
+                </div>
+            </motion.div>
 
             <div className="flex flex-wrap gap-4 mb-6 px-[3%]">
                 {categories.map((category) => (
-                    <button
+                    <motion.button
                         key={category}
                         className={`py-2 px-3 cursor-pointer uppercase rounded-lg transition ${activeCategory === category ? "text-[#0C89FF]" : "text-[#474747]"}`}
                         onClick={() => {
                             setActiveCategory(category);
                             setCurrentIndex(0);
                         }}
+                        whileInView={{ opacity: 1 }}
+                        initial={{ opacity: 0 }}
+                        transition={{ duration: 0.4 }}
                     >
                         {category}
-                    </button>
+                    </motion.button>
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+            <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
                 {paginatedData.map((item, idx) => (
-                    <div key={idx} className="shadow-lg text-white w-full mx-auto">
+                    <motion.div
+                        key={idx}
+                        className="shadow-lg text-white w-full mx-auto"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: idx * 0.2, duration: 0.6, ease: "easeOut" }}
+                    >
                         <img src={item.image} alt={item.title} className="object-cover w-full rounded-lg" />
-                    </div>
+                    </motion.div>
                 ))}
-            </div>
+            </motion.div>
 
-            <div className="flex justify-center gap-4 mt-10">
-                <button 
+            <motion.div
+                className="flex justify-center gap-4 mt-10"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+            >
+                <motion.button
                     onClick={handlePrevClick}
-                    className={`px-3 cursor-pointer   py-2 font-bold text-xl rounded transition hover:bg-[#FF693B]
-                         hover:text-white border-[#0C89FF] border text-[#0C89FF] ${activePagination == "left" ? "bg-[#FF693B] border-0 text-white" : ""}`}
+                    className={`px-3 cursor-pointer py-2 font-bold text-xl rounded transition hover:bg-[#FF693B] hover:text-white border-[#0C89FF] border text-[#0C89FF] ${activePagination === "left" ? "bg-[#FF693B] border-0 text-white" : ""}`}
                 >
                     <MdKeyboardArrowLeft />
-                </button>
-                <button 
+                </motion.button>
+                <motion.button
                     onClick={handleNextClick}
-                    className={`px-3 py-2 cursor-pointer    font-bold text-xl rounded transition hover:bg-[#FF693B]
-                        hover:text-white border-[#0C89FF] border text-[#0C89FF] ${activePagination == "right" ? "bg-[#FF693B] border-0 text-white" : ""}`}
+                    className={`px-3 py-2 cursor-pointer font-bold text-xl rounded transition hover:bg-[#FF693B] hover:text-white border-[#0C89FF] border text-[#0C89FF] ${activePagination === "right" ? "bg-[#FF693B] border-0 text-white" : ""}`}
                 >
                     <MdOutlineKeyboardArrowRight />
-                </button>
-            </div>
+                </motion.button>
+            </motion.div>
 
             <div className="mr-[3%] -mt-10">
-                <Separator text='creative portfolio' textColor='black'></Separator>
+                <Separator text="creative portfolio" textColor="black" />
             </div>
         </motion.div>
     );

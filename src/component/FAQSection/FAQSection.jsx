@@ -36,60 +36,75 @@ const FAQSection = () => {
 
     return (
         <div className="bg-white">
-            <section className="py-20 ">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-[#0A2C8C]">
-                    Frequently Asked Questions
-                </h2>
-                <div className="mt-10 max-w-4xl mx-auto">
-                    {faqData.map((faq, index) => (
-                        <div
-                            key={index}
-                            className={`bg-white border-b border-[#33333327] ${
-                                faqData.length === index + 1 ? "border-b-0" : ""
-                            }`}
-                        >
-                            <motion.button
-                                className="w-full cursor-pointer text-left p-6 flex justify-between items-center"
-                                onClick={() => toggleFAQ(index)}
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
+            <motion.section
+                className="py-20"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                viewport={{ once: true }}
+            >
+                <div className="container mx-auto px-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-[#0A2C8C]">
+                        Frequently Asked Questions
+                    </h2>
+                    <div className="mt-10 max-w-4xl mx-auto">
+                        {faqData.map((faq, index) => (
+                            <div
+                                key={index}
+                                className={`bg-white border-b border-[#33333327] ${
+                                    faqData.length === index + 1 ? "border-b-0" : ""
+                                }`}
                             >
-                                <div
-                                    className={`text-lg md:text-2xl font-semibold flex gap-4 md:gap-6 ${
-                                        activeIndex === index ? "text-[#0A2C8C]" : "text-[#6D758F]"
-                                    }`}
+                                <motion.button
+                                    className="w-full cursor-pointer text-left p-6 flex justify-between items-center"
+                                    onClick={() => toggleFAQ(index)}
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
                                 >
-                                    <span>0{index + 1}</span>
-                                    {faq.question}
-                                </div>
-                                <span className="text-sm text-[#6D758F]">
-                                    {activeIndex === index ? <IoClose /> : <FaPlus />}
-                                </span>
-                            </motion.button>
-
-                            <AnimatePresence>
-                                {activeIndex === index && (
-                                    <motion.div
-                                        initial={{ opacity: 0, height: 0 }}
-                                        animate={{ opacity: 1, height: "auto" }}
-                                        exit={{ opacity: 0, height: 0 }}
-                                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                                        className="overflow-hidden"
+                                    <div
+                                        className={`text-lg md:text-2xl font-semibold flex gap-4 md:gap-6 ${
+                                            activeIndex === index
+                                                ? "text-[#0A2C8C]"
+                                                : "text-[#6D758F]"
+                                        }`}
                                     >
-                                        <div className="p-6 pt-0 ml-12">
-                                            <p className="text-[#6D758F] text-lg md:text-2xl">
-                                                {faq.answer}
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
+                                        <span>0{index + 1}</span>
+                                        {faq.question}
+                                    </div>
+                                    <span className="text-sm text-[#6D758F]">
+                                        {activeIndex === index ? (
+                                            <IoClose />
+                                        ) : (
+                                            <FaPlus />
+                                        )}
+                                    </span>
+                                </motion.button>
+
+                                <AnimatePresence>
+                                    {activeIndex === index && (
+                                        <motion.div
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            transition={{
+                                                duration: 0.3,
+                                                ease: "easeInOut",
+                                            }}
+                                            className="overflow-hidden"
+                                        >
+                                            <div className="p-6 pt-0 ml-12">
+                                                <p className="text-[#6D758F] text-lg md:text-2xl">
+                                                    {faq.answer}
+                                                </p>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </section>
+            </motion.section>
         </div>
     );
 };
