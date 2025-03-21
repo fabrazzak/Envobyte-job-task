@@ -54,7 +54,7 @@ const Services = () => {
             <div className="flex flex-col gap-4 text-center md:text-left">
                 {/* Subheading */}
                 <motion.h3
-                    className="text-[#FF693B] text-sm md:text-[16px] tracking-widest"
+                    className="text-[#FF693B] uppercase text-sm md:text-[16px] tracking-widest"
                     whileInView={{ opacity: 1, x: 0 }}
                     initial={{ opacity: 0, x: -50 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
@@ -105,7 +105,7 @@ const Services = () => {
                         {categories.map((category) => (
                             <motion.button
                                 key={category}
-                                className={`py-2 rounded-lg cursor-pointer transition ${activeCategory === category ? "text-[#0C89FF]" : "text-white"}`}
+                                className={`py-2 uppercase rounded-lg cursor-pointer transition ${activeCategory === category ? "text-[#0C89FF]" : "text-white"}`}
                                 onClick={() => setActiveCategory(category)}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}

@@ -56,13 +56,13 @@ const Portfolio = () => {
             {/* Left Side: Heading and Subheading */}
             <div className="flex flex-col gap-4 text-center md:text-left">
                 {/* Subheading */}
-                <h3 className="text-[#0C89FF] text-sm md:text-[16px] tracking-widest">
-                    Digital Portfolio
+                <h3 className="text-[#0C89FF] uppercase  text-sm md:text-[16px] tracking-widest">
+                    UI/UX Portfolio
                 </h3>
 
                 {/* Main Heading */}
                 <h2 className="text-3xl md:text-4xl lg:text-5xl text-[#001246] font-bold tracking-wide">
-                    Check Our Work
+                    Check Our Previous Work
                 </h2>
             </div>
 
@@ -118,7 +118,7 @@ const Portfolio = () => {
             </div>
 
             <div className="mr-[3%] -mt-10">
-                <Separator textColor='black'></Separator>
+                <Separator text='creative portfolio' textColor='black'></Separator>
             </div>
         </motion.div>
     );

@@ -61,7 +61,7 @@ const Process = () => {
             whileInView={{ opacity: 1, scale: 1 }}  // Animation triggers when section is in view
             transition={{ duration: 0.5, delay: .4 }}
           >
-            <Image src={processImg} alt="process-img" />
+            <Image  src={processImg} alt="process-img" />
           </motion.div>
 
           {/* Separator Animation */}
@@ -86,10 +86,10 @@ const Process = () => {
           transition={{ duration: 0.5, delay: .6 }}
         >
           <motion.button            
-            whileHover={{ scale: 1.1 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             
-            className="bg-orange-600 hover:bg-orange-700 text-white px-18 py-3 rounded-md font-bold"
+            className="bg-[#FF693B] cursor-pointer hover:[#FF693B] text-white px-18 py-3 rounded font-bold"
           >
             Contact Now
           </motion.button>

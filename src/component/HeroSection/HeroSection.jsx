@@ -52,15 +52,15 @@ const HeroSection = () => {
             className="flex flex-col hero-bg justify-center items-center text-center gap-6 px-4 md:px-8 lg:px-12 pt-32 md:pt-40 lg:pt-64 pb-16 md:pb-20 text-white"
         >
             <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>
-                <h1 className="font-bold text-3xl md:text-5xl lg:text-6xl uppercase mb-4">Digital Services</h1>
-                <h4 className="text-base md:text-lg lg:text-xl uppercase">Building your empire digitally</h4>
+                <h1 className="font-bold text-3xl md:text-5xl lg:text-6xl tracking-wide uppercase mb-4">Digital Services</h1>
+                <h4 className="text-base md:text-lg lg:text-xl uppercase font-bold">Building your empire digitally</h4>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} className="flex flex-col md:flex-row gap-3 md:gap-6 mt-4 justify-center items-center">
-                <motion.button whileHover={{ scale: 1.03, backgroundColor: "#FF693B" }} transition={{ duration: 0.3 }} className=" lg:px-20 cursor-pointer lg:py-4 px-12 py-3  uppercase  text-white bg-[#FF693B] rounded-lg hover:bg-[#FF693B] transition">
+                <motion.button whileHover={{ scale: 1.03, backgroundColor: "#FF693B" }} transition={{ duration: 0.3 }} className=" lg:px-20 cursor-pointer lg:py-4 px-12 py-3  uppercase  text-white bg-[#FF693B] rounded hover:bg-[#FF693B] transition">
                     See Pricing
                 </motion.button>
-                <motion.button whileHover={{ scale: 1.03, backgroundColor: "#FF693B" }} transition={{ duration: 0.3 }} className="border cursor-pointer px-5 md:px-8 lg:px-10 py-2 md:py-3 lg:py-4 border-white rounded-lg text-white hover:border-[#FF693B] transition">
+                <motion.button whileHover={{ scale: 1.03, backgroundColor: "#FF693B" }} transition={{ duration: 0.3 }} className="border uppercase cursor-pointer px-5 md:px-8 lg:px-10 py-2 md:py-3 lg:py-4 border-white rounded-lg text-white hover:border-[#FF693B] transition">
                     Book an appointment
                 </motion.button>
             </motion.div>
