@@ -8,6 +8,7 @@ import whatsapp from '@/app/assets/whatsapp-1.png'
 import linkdin from '@/app/assets/linkedn.png'
 import Link from "next/link";
 import Footer from "../Footer/Footer";
+import check from '../../app/assets/check.png'
 
 const ContactSection = () => {
     const {
@@ -210,7 +211,7 @@ const ContactSection = () => {
                             <Image src={email} width={56} height={46} alt="email"></Image>
                                 <div>
                                 <h4 className="text-lg font-semibold text-white">Business :</h4>
-                                <p className="text-white">support@envolbyte.com</p>
+                                <div className="flex gap-2"><p className="text-white">support@envolbyte.com</p> <Image src={check} alt="check" width={20} height={20}></Image></div>
                                 </div>
                             </div>
 
@@ -219,7 +220,9 @@ const ContactSection = () => {
                                <Image src={whatsapp} width={56} height={46} alt="whatsapp"></Image>
                                <div>
                                <h4 className="text-lg font-semibold text-white">WhatsApp:</h4>
-                               <p className="text-white">+1 (667) 777 2477</p>
+                              <div className="flex gap-2">
+                              <p className="text-white">+1 (667) 777 2477</p> <Image src={check} alt="check" width={20} height={20}></Image>
+                              </div>
                                </div>
                             </div>
 
@@ -232,9 +235,9 @@ const ContactSection = () => {
                                     href="https://www.linkedin.com/company/envolbyte"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-white hover:underline"
+                                    className="text-white flex  gap-2 hover:underline"
                                 >
-                                    www.linkedin.com/company/envolbyte
+                                    www.linkedin.com/company/envolbyte <Image src={check} alt="check" width={20} height={20}></Image>
                                 </Link>
                                 </div>
                             </div>
